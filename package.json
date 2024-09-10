@@ -1,13 +1,5 @@
 {
-  "options": {
-    "allowedHosts": [
-      "localhost",
-      ".localhost",
-      "https://sw-403g.onrender.com",
-      ".sw-403g.onrender"
-    ]
-  },
-  "proxy": "https://sw-403g.onrender.com/",
+  
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
