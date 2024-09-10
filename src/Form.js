@@ -39,9 +39,7 @@ const Form = () => {
   const [ifyesApplied, setIfyesApplied] = useState("");
   const [financialAssist, setFinancialAssist] = useState("");
   const [feeReceipt, setFeeReceipt] = useState("");
-  {
-    /*Loader Var*/
-  }
+  const [mainLoader, setMainLoader] = useState(false);
   const [loader, setLoader] = useState(false);
   const [loader2, setLoader2] = useState(false);
   const [loader3, setLoader3] = useState(false);
@@ -85,6 +83,7 @@ const Form = () => {
     ) {
       alert("Fill all the required fields");
     } else {
+      setMainLoader(true);
       e.preventDefault();
       await axios
         .post("https://sw-403g.onrender.com/form/Scholorship", {
@@ -121,7 +120,8 @@ const Form = () => {
           eleBill: eleBill,
         })
         .then((res) => {
-          console.log(res);
+          alert("Submited Succcessfully");
+          setMainLoader(false);
         })
         .catch((err) => console.error(err));
     }
@@ -726,16 +726,20 @@ const Form = () => {
             </div>
           </div>
         </div>
-        <input
-          type="submit"
-          value="Submit"
-          required
-          style={{
-            backgroundColor: "#1679AB",
-            color: "white",
-            fontWeight: "bold",
-          }}
-        />
+        <div className="form-section">
+          {mainLoader ? <Vortex /> : <></>}
+          {mainLoader ? "Please Wait..." : <></>}
+          <input
+            type="submit"
+            value="Submit"
+            required
+            style={{
+              backgroundColor: "#1679AB",
+              color: "white",
+              fontWeight: "bold",
+            }}
+          />
+        </div>
       </form>
     </div>
   );
