@@ -123,7 +123,7 @@ const Form = () => {
           alert("Submited Succcessfully");
           setMainLoader(false);
         })
-        .catch((err) => console.error(err));
+        .catch((err) => alert("Server Occupied Try Later");
     }
   };
   return (
