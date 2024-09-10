@@ -9,7 +9,7 @@ export default function View() {
   const [form, setForm] = useState();
   async function fetch() {
     await axios
-      .get("/form/fetch")
+      .get("http://sw-403g.onrender.com//form/fetch")
       .then((res) => {
         setData(res.data.user);
         console.log(data);
