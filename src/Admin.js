@@ -11,7 +11,7 @@ export default function Admin() {
     setLoader(true);
     e.preventDefault();
     await axios
-      .post("https://sw-403g.onrender.com/form/Admin-login", {
+      .post("http://sw-403g.onrender.com/form/Admin-login", {
         name: name,
         password: password,
       })
