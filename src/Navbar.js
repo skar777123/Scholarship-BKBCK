@@ -31,8 +31,16 @@ export default function Navbar() {
           borderRadius: 10,
         }}
       >
-        <a href="/Admin-login">Admin</a>
-        <a href="/Admin-login">Admin</a>
+        {localStorage.getItem("token") ? (
+          <a href="/Admin-view">View Forms</a>
+        ) : (
+          <></>
+        )}
+        {localStorage.getItem("token") ? (
+          <a onClick={() => localStorage.removeItem("token")}>Logout</a>
+        ) : (
+          <a href="/Admin-login">Admin</a>
+        )}
       </div>
     </div>
   );
