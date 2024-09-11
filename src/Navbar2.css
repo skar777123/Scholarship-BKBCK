@@ -1,0 +1,76 @@
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1679AB;
+  padding: 15px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+  width: 50px;
+  height: 50px;
+  background-color: white; /* Placeholder if no logo is available */
+  border-radius: 50%;
+}
+
+/* Center text section */
+.navbar .center-text {
+  text-align: center;
+  color: white;
+  line-height: 1.4;
+  max-width: 600px;
+}
+
+/* Navigation links styling */
+.navbar .nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar a {
+  color: #1679AB;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover effect for links */
+.navbar a:hover {
+  background-color: #fff;
+  color: #2193b0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .navbar .logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+
+  .navbar .center-text {
+    margin-bottom: 10px;
+  }
+
+  .navbar .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar a {
+    width: 100%;
+    padding: 12px;
+  }
+}

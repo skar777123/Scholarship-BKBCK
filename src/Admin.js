@@ -26,7 +26,7 @@ export default function Admin() {
       .catch((err) => alert(err.message));
   };
   return (
-    <div className="container2" style={{ marginLeft: 425, marginTop: 75 }}>
+    <div className="container2">
       <div className="myform">
         <form onSubmit={handleSubmit}>
           <h2>ADMIN LOGIN</h2>
