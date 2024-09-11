@@ -31,16 +31,7 @@ export default function Navbar() {
           borderRadius: 10,
         }}
       >
-        <a href="/Admin-view">View Forms</a>
-      </div>
-      <div
-        className="nav-links"
-        style={{
-          backgroundColor: "whitesmoke",
-          color: "#1679AB",
-          borderRadius: 10,
-        }}
-      >
+        <a href="/Admin-login">Admin</a>
         <a href="/Admin-login">Admin</a>
       </div>
     </div>
