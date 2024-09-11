@@ -9,7 +9,7 @@ export default function View() {
   const [form, setForm] = useState();
   async function fetch() {
     await axios
-      .get("https://sw-403g.onrender.com//form/fetch")
+      .get("/form/fetch")
       .then((res) => {
         setData(res.data.user);
         console.log(data);
@@ -21,7 +21,7 @@ export default function View() {
   }
   useEffect(() => {
     fetch();
-  }, []);
+  }, [data]);
   return (
     <div>
       <div

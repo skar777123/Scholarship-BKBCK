@@ -1,6 +1,4 @@
 {
-  "homepage": "http://www.scholarship-birla-bkbck.com/",
-<<<<<<< HEAD
   "options": {
     "allowedHosts": [
       "localhost",
@@ -9,8 +7,6 @@
       ".sw-403g.onrender"
     ]
   },
-=======
->>>>>>> 41176047405b75bdbd1226749b1e017a7e0bc39a
   "proxy": "https://sw-403g.onrender.com/",
   "name": "frontend",
   "version": "0.1.0",

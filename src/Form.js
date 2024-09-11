@@ -86,7 +86,7 @@ const Form = () => {
       setMainLoader(true);
       e.preventDefault();
       await axios
-        .post("https://sw-403g.onrender.com/form/Scholorship", {
+        .post("/form/Scholorship", {
           name: name,
           department: department,
           course: Maincourse,
