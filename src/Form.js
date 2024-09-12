@@ -65,44 +65,6 @@ const Form = () => {
   const [loader4, setLoader4] = useState(false);
 
   const handleSubmit = async (e) => {
-    if (
-      name === "" ||
-      emailId === "" ||
-      department === "" ||
-      dateofbirth === "" ||
-      course === "" ||
-      year === "" ||
-      courseFee === "" ||
-      mobileno === "" ||
-      address === "" ||
-      studentid === "" ||
-      curriculum === "" ||
-      applyforscholarshipfreeship === "" ||
-      aadhar === "" ||
-      bankName === "" ||
-      accountno === "" ||
-      ifsccode === "" ||
-      branch === "" ||
-      bankAddress === "" ||
-      caste === "" ||
-      previousMarks === "" ||
-      fatherOcc === "" ||
-      motherOcc === "" ||
-      income === "" ||
-      incomeUpload === "" ||
-      bankUpload === "" ||
-      reHOD === "" ||
-      reDoP === "" ||
-      attendance1 === "" ||
-      attendance2 === "" ||
-      eleBill === "" ||
-      ifyesApplied === "" ||
-      financialAssist === "" ||
-      feeReceipt === "" ||
-      reVP === ""
-    ) {
-      alert("Fill all the required fields");
-    } else {
       setMainLoader(true);
       e.preventDefault();
       await axios
@@ -145,7 +107,7 @@ const Form = () => {
           setMainLoader(false);
         })
         .catch((err) => alert("Server Occupied Try Later" + err.message));
-    }
+    
   };
   return (
     <div className="container">
