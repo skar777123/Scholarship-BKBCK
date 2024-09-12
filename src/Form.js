@@ -69,8 +69,7 @@ const Form = () => {
       await axios
         .post("/form/Scholorship", {
           name: name,
-          department: department,
-          course: Maincourse,
+          program: program,
           courseFee: courseFee,
           feeReceipt: feeReceipt.url,
           DOB: dateofbirth,
