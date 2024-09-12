@@ -144,7 +144,7 @@ const Form = () => {
           alert("Submited Succcessfully");
           setMainLoader(false);
         })
-        .catch((err) => alert("Server Occupied Try Later " + err.message));
+        .catch((err) => alert("Server Occupied Try Later" + err.message ));
     }
   };
   return (
