@@ -4,6 +4,24 @@ import "./Form.css";
 import { Vortex } from "react-loader-spinner";
 
 const Form = () => {
+  const month = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const d = new Date();
+  const att1 = month[d.getMonth() - 2];
+  const att2 = month[d.getMonth() - 1];
   const [name, setFullname] = useState("");
   const [emailId, setEmailId] = useState("");
   const [department, setDepartment] = useState("");
@@ -39,6 +57,7 @@ const Form = () => {
   const [ifyesApplied, setIfyesApplied] = useState("");
   const [financialAssist, setFinancialAssist] = useState("");
   const [feeReceipt, setFeeReceipt] = useState("");
+  const [reVP, setReVp] = useState("");
   const [mainLoader, setMainLoader] = useState(false);
   const [loader, setLoader] = useState(false);
   const [loader2, setLoader2] = useState(false);
@@ -79,7 +98,8 @@ const Form = () => {
       eleBill === "" ||
       ifyesApplied === "" ||
       financialAssist === "" ||
-      feeReceipt === ""
+      feeReceipt === "" ||
+      reVP === ""
     ) {
       alert("Fill all the required fields");
     } else {
@@ -114,6 +134,7 @@ const Form = () => {
           bankBranch: branch,
           bankUpload: bankUpload,
           ReHOD: reHOD,
+          ReVP: reVP,
           ReDoP: reDoP,
           attendance1: attendance1,
           attendance2: attendance2,
@@ -181,17 +202,21 @@ const Form = () => {
             </div>
             <div>
               <label htmlFor="department">Department</label>
-              <input
-                type="text"
-                id="department"
-                name="department"
+              <select
                 required
-                value={department}
-                placeholder="Enter Department"
+                name="department"
+                id="department"
                 onChange={(e) => {
                   setDepartment(e.target.value);
                 }}
-              />
+              >
+                <option value="">Select your Department</option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+              </select>
             </div>
             <div>
               <label htmlFor="mobile">Mobile Number</label>
@@ -292,11 +317,13 @@ const Form = () => {
               {loader ? <Vortex /> : <></>}
             </div>
             <div>
-              <label htmlFor="mobile">Curriculum </label>
+              <label htmlFor="mobile">
+                Curriculor/ Co.Curriculor / Extra Curriculor{" "}
+              </label>
               <input
                 type="text"
                 id="mobile"
-                placeholder="Enter curriculum"
+                placeholder="Enter Curriculor"
                 name="mobile"
                 required
                 value={curriculum}
@@ -349,17 +376,21 @@ const Form = () => {
             </div>
             <div>
               <label htmlFor="caste">Caste</label>
-              <input
-                type="text"
-                id="caste"
-                placeholder="Enter you Caste eg.(Open,OBC)"
-                name="caste"
+              <select
                 required
-                value={caste}
+                name="caste"
+                id="caste"
                 onChange={(e) => {
                   setCaste(e.target.value);
                 }}
-              />
+              >
+                <option value="">Select your Caste</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+                <option value="OBC">OBC</option>
+                <option value="NT">NT</option>
+                <option value="EWS">EWS</option>
+              </select>
             </div>
             <div>
               <label htmlFor="previousMarks">Previous Term Marks</label>
@@ -580,7 +611,7 @@ const Form = () => {
             </div>
             <div>
               <label htmlFor="bank-document">
-                Bank Document{" "}
+                Bank Passbook{" "}
                 <span style={{ color: "red" }}>
                   * upload image of first page
                 </span>
@@ -626,7 +657,7 @@ const Form = () => {
               </label>
               <input
                 type="text"
-                placeholder="Yes or No"
+                placeholder="Mention the ammount"
                 required
                 value={reHOD}
                 onChange={(e) => {
@@ -636,10 +667,24 @@ const Form = () => {
             </div>
             <div>
               <label htmlFor="director-recommendation">
-                Recommendation from Director/HOD
+                Recommendation from Vice Principal
               </label>
               <input
-                placeholder="Yes or No"
+                placeholder="Mention the ammount"
+                type="text"
+                required
+                value={reVP}
+                onChange={(e) => {
+                  setReVp(e.target.value);
+                }}
+              />
+            </div>
+            <div>
+              <label htmlFor="director-recommendation">
+                Recommendation from Director/Principal
+              </label>
+              <input
+                placeholder="Mention the ammount"
                 type="text"
                 required
                 value={reDoP}
@@ -655,13 +700,16 @@ const Form = () => {
           <div className="section-title">Attendance</div>
           <div className="form-grid">
             <div>
-              <label htmlFor="attendance-1-month">Attendance of 1 Month</label>
+              <label htmlFor="attendance-1-month">
+                Attendance of{" " + att1 + " "}
+                month
+              </label>
               <input
                 type="text"
                 id="attendance-1-month"
                 name="attendance-1-month"
                 required
-                placeholder="Enter July Attendance"
+                placeholder={"Enter " + att1 + " Attendance"}
                 value={attendance1}
                 onChange={(e) => {
                   setAttendance1(e.target.value);
@@ -670,11 +718,12 @@ const Form = () => {
             </div>
             <div>
               <label htmlFor="attendance-2-months">
-                Attendance at Least 2 Months
+                Attendance of{" " + att2 + " "}
+                month
               </label>
               <input
                 type="text"
-                placeholder="Enter August Attendance"
+                placeholder={"Enter " + att2 + " Attendance"}
                 id="attendance-2-months"
                 name="attendance-2-months"
                 required

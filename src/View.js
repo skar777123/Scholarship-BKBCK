@@ -19,9 +19,9 @@ export default function View() {
       setLoader(true);
     }
   }
-  useEffect(() => {
+  useEffect(()=>{
     fetch();
-  }, [data]);
+  })
   return (
     <div>
       <div

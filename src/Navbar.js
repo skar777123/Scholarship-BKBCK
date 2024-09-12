@@ -16,12 +16,12 @@ export default function Navbar() {
 
       <div className="center-text">
         <div>
-          <strong>B.K.Birla College, Kalyan</strong>
+          <strong>B. K. Birla College, Kalyan</strong>
         </div>
         <div>Empowered Autonomous Status</div>
         <div>Conducted by Kalyan Citizen's Education Society</div>
         <div>Affiliated to University of Mumbai</div>
-        <div>Reaccredited by NAAC (4th Cycle) with 'A++' Grade (CGPA=3.51)</div>
+        <div>Reaccredited by NAAC (4th Cycle) with 'A++' Grade (CGPA 3.51)</div>
       </div>
       <div
         className="nav-links"
@@ -37,7 +37,7 @@ export default function Navbar() {
           <></>
         )}
         {localStorage.getItem("token") ? (
-          <a onClick={() => localStorage.removeItem("token")}>Logout</a>
+          <a onClick={() => localStorage.removeItem("token")} href="/">Logout</a>
         ) : (
           <a href="/Admin-login">Admin</a>
         )}

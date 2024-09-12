@@ -300,8 +300,14 @@ export default function Iview(props) {
               <input readOnly value={props.form.ReHOD} />
             </div>
             <div>
+              <label htmlFor="VP-recommendation">
+                Recommendation from Vice Principal
+              </label>
+              <input readOnly value={props.form.ReVP} />
+            </div>
+            <div>
               <label htmlFor="director-recommendation">
-                Recommendation from Director/HOD
+                Recommendation from Director/Principal
               </label>
               <input readOnly value={props.form.ReDoP} />
             </div>
