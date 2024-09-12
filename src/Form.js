@@ -72,7 +72,7 @@ const Form = () => {
           name: name,
           program: program,
           courseFee: courseFee,
-          feeReceipt: feeReceipt.url,
+          feeReceipt: feeReceipt,
           DOB: dateofbirth,
           studentId: studentid,
           previousMarks: previousMarks,
