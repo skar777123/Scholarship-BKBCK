@@ -23,8 +23,9 @@ export default function View() {
     fetch();
   })
   return (
-    <div>
+    <div className="containerM">
       <div
+      className="ViewContainer"
         style={{
           backgroundColor: "whitesmoke",
           padding: 30,

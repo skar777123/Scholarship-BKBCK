@@ -144,7 +144,7 @@ const Form = () => {
           alert("Submited Succcessfully");
           setMainLoader(false);
         })
-        .catch((err) => alert("Server Occupied Try Later"));
+        .catch((err) => alert("Server Occupied Try Later " + err.message));
     }
   };
   return (
@@ -211,7 +211,7 @@ const Form = () => {
                 }}
               >
                 <option value="">Select your Department</option>
-                <option value=""></option>
+                <option value="IT">IT</option>
                 <option value=""></option>
                 <option value=""></option>
                 <option value=""></option>
@@ -240,7 +240,6 @@ const Form = () => {
                 id="year"
                 onChange={(e) => {
                   setYear(e.target.value);
-                  console.log(e.target.value);
                 }}
               >
                 <option value="">Select Year</option>

@@ -63,6 +63,7 @@ input, select, textarea {
     .form-grid div {
         flex: 0 0 100%;
     }
+    
 }
 
 button {

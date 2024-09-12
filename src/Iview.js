@@ -3,7 +3,7 @@ import "./Iview.css";
 
 export default function Iview(props) {
   return (
-    <div>
+    <div className="form-flex">
       <form>
         {/* Personal Details Section */}
         <div className="form-section">
