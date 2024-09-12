@@ -19,13 +19,13 @@ export default function View() {
       setLoader(true);
     }
   }
-  useEffect(()=>{
+  useEffect(() => {
     fetch();
-  })
+  }, []);
   return (
     <div className="containerM">
       <div
-      className="ViewContainer"
+        className="ViewContainer"
         style={{
           backgroundColor: "whitesmoke",
           padding: 30,
@@ -69,7 +69,7 @@ export default function View() {
                     <th scope="row">{index + 1}</th>
                     <td>{item.name}</td>
                     <td>{item.studentId}</td>
-                    <td>{item.course}</td>
+                    <td>{item.program}</td>
                     <td>
                       <button onClick={formFetch}>Check Form</button>
                     </td>

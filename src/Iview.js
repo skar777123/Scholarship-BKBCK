@@ -41,12 +41,12 @@ export default function Iview(props) {
               />
             </div>
             <div>
-              <label htmlFor="department">Department</label>
+              <label htmlFor="class">Class</label>
               <input
-                value={props.form.department}
+                value={props.form.program}
                 type="text"
-                id="department"
-                name="department"
+                id="class"
+                name="class"
                 required
                 readOnly
               />
@@ -60,17 +60,6 @@ export default function Iview(props) {
                 name="mobile"
                 readOnly
                 required
-              />
-            </div>
-            <div>
-              <label htmlFor="course-class">Course/Class</label>
-              <input
-                type="text"
-                id="course-class"
-                name="course-class"
-                required
-                value={props.form.course}
-                readOnly
               />
             </div>
             <div>

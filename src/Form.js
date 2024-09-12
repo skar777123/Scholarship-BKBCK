@@ -24,11 +24,10 @@ const Form = () => {
   const att2 = month[d.getMonth() - 1];
   const [name, setFullname] = useState("");
   const [emailId, setEmailId] = useState("");
-  const [department, setDepartment] = useState("");
+  const [program, setProgram] = useState("");
   const [dateofbirth, setDateofbirth] = useState("");
-  const [course, setCourse] = useState("");
   const [year, setYear] = useState("");
-  let Maincourse = course + " " + year;
+  let Maincourse = year + " " + program;
   const [courseFee, setCourseFee] = useState("");
   const [mobileno, setMobileno] = useState("");
   const [address, setAddress] = useState("");
@@ -65,87 +64,47 @@ const Form = () => {
   const [loader4, setLoader4] = useState(false);
 
   const handleSubmit = async (e) => {
-    if (
-      name === "" ||
-      emailId === "" ||
-      department === "" ||
-      dateofbirth === "" ||
-      course === "" ||
-      year === "" ||
-      courseFee === "" ||
-      mobileno === "" ||
-      address === "" ||
-      studentid === "" ||
-      curriculum === "" ||
-      applyforscholarshipfreeship === "" ||
-      aadhar === "" ||
-      bankName === "" ||
-      accountno === "" ||
-      ifsccode === "" ||
-      branch === "" ||
-      bankAddress === "" ||
-      caste === "" ||
-      previousMarks === "" ||
-      fatherOcc === "" ||
-      motherOcc === "" ||
-      income === "" ||
-      incomeUpload === "" ||
-      bankUpload === "" ||
-      reHOD === "" ||
-      reDoP === "" ||
-      attendance1 === "" ||
-      attendance2 === "" ||
-      eleBill === "" ||
-      ifyesApplied === "" ||
-      financialAssist === "" ||
-      feeReceipt === "" ||
-      reVP === ""
-    ) {
-      alert("Fill all the required fields");
-    } else {
-      setMainLoader(true);
-      e.preventDefault();
-      await axios
-        .post("/form/Scholorship", {
-          name: name,
-          department: department,
-          course: Maincourse,
-          courseFee: courseFee,
-          feeReceipt: feeReceipt.url,
-          DOB: dateofbirth,
-          studentId: studentid,
-          previousMarks: previousMarks,
-          curricular: curriculum,
-          mobile: mobileno,
-          email: emailId,
-          address: address,
-          aadhar: aadhar,
-          caste: caste,
-          fatherOcc: fatherOcc,
-          motherOcc: motherOcc,
-          Income: income,
-          IncomeUpload: incomeUpload,
-          OtherFoS: applyforscholarshipfreeship,
-          OtherFoSyes: ifyesApplied,
-          financeAssist: financialAssist,
-          bankName: bankName,
-          bankAccNo: accountno,
-          bankIFSC: ifsccode,
-          bankBranch: branch,
-          bankUpload: bankUpload,
-          ReHOD: reHOD,
-          ReVP: reVP,
-          ReDoP: reDoP,
-          attendance1: attendance1,
-          attendance2: attendance2,
-          eleBill: eleBill,
-        })
-        .then((res) => {
-          alert("Submited Succcessfully");
-          setMainLoader(false);
-        })
-        .catch((err) => alert("Server Occupied Try Later" + err.message ));
-    }
+    setMainLoader(true);
+    e.preventDefault();
+    await axios
+      .post("/form/Scholorship", {
+        name: name,
+        program: Maincourse,
+        courseFee: courseFee,
+        feeReceipt: feeReceipt.url,
+        DOB: dateofbirth,
+        studentId: studentid,
+        previousMarks: previousMarks,
+        curricular: curriculum,
+        mobile: mobileno,
+        email: emailId,
+        address: address,
+        aadhar: aadhar,
+        caste: caste,
+        fatherOcc: fatherOcc,
+        motherOcc: motherOcc,
+        Income: income,
+        IncomeUpload: incomeUpload,
+        OtherFoS: applyforscholarshipfreeship,
+        OtherFoSyes: ifyesApplied,
+        financeAssist: financialAssist,
+        bankName: bankName,
+        bankAccNo: accountno,
+        bankIFSC: ifsccode,
+        bankBranch: branch,
+        bankUpload: bankUpload,
+        ReHOD: reHOD,
+        ReVP: reVP,
+        ReDoP: reDoP,
+        attendance1: attendance1,
+        attendance2: attendance2,
+        eleBill: eleBill,
+      })
+      .then((res) => {
+        alert("Submited Succcessfully");
+        setMainLoader(false);
+      })
+      .catch((err) => alert("Server Occupied Try Later" + err.message));
   };
   return (
     <div className="container">
@@ -200,24 +159,7 @@ const Form = () => {
                 placeholder="Enter your Student ID"
               />
             </div>
-            <div>
-              <label htmlFor="department">Department</label>
-              <select
-                required
-                name="department"
-                id="department"
-                onChange={(e) => {
-                  setDepartment(e.target.value);
-                }}
-              >
-                <option value="">Select your Department</option>
-                <option value="IT">IT</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-              </select>
-            </div>
+
             <div>
               <label htmlFor="mobile">Mobile Number</label>
               <input
@@ -232,8 +174,135 @@ const Form = () => {
                 }}
               />
             </div>
+
             <div>
-              <label htmlFor="course-class">Course/Class</label>
+              <label htmlFor="department">Program</label>
+              <select
+                required
+                name="department"
+                id="department"
+                onChange={(e) => {
+                  setProgram(e.target.value);
+                }}
+              >
+                <option value="">Select your Department</option>
+                <option value="B.A. Hindi">B.A. Hindi</option>
+                <option value="B.A. Marathi">B.A. Marathi</option>
+                <option value="B.A. English">B.A. English</option>
+                <option value="B.A. Economics">B.A. Economics</option>
+                <option value="B.A. Geography">B.A. Geography</option>
+                <option value="B.A. Political Science">
+                  B.A. Political Science
+                </option>
+                <option value="B.A. History">B.A. Histroy</option>
+                <option value="B.A. Philosophy">B.A. Philosophy</option>
+                <option value="B.A.M.M.C">B.A.M.M.C</option>
+                <option value="B.Sc. Botany">B.Sc. Botany</option>
+                <option value="B.Sc. Chemistry">B.Sc. Chemistry</option>
+                <option value="B.Sc. Physics">B.Sc. Physics</option>
+                <option value="B.Sc. Mathematics">B.Sc. Mathematics</option>
+                <option value="B.Sc. Microbiology">B.Sc. Microbiology</option>
+                <option value="B.Sc. Zoology">B.Sc. Zoology</option>
+                <option value="B.Sc. (C.S.)">B.Sc. (C.S.)</option>
+                <option value="BCA">BCA</option>
+                <option value="B.Sc. (I.T.)">B.Sc. (I.T.)</option>
+                <option value="B.Sc. Data Science">B.Sc. Data Science</option>
+                <option value="B.Sc. Biotechnology">B.Sc. Biotechnology</option>
+                <option value="B.Voc. in Medical Laboratory Technology">
+                  B.Voc. in Medical Laboratory Technology
+                </option>
+                <option value="B.Voc. in Cyber Security and Forensics">
+                  B.Voc. in Cyber Security and Forensics
+                </option>
+                <option value="B.Voc. in Business Management and Enterpreneurial">
+                  B.Voc. in Business Management and Enterpreneurial
+                </option>
+                <option value="B.Voc. in Financial Market and Trading Operations ">
+                  B.Voc. in Financial Market and Trading Operations{" "}
+                </option>
+                <option value="B.Com.">B.Com.</option>
+                <option value="B.Com.">B.Com.</option>
+                <option value="B.M.S.">B.M.S.</option>
+                <option value="B.M.S. (Retail Management)">
+                  B.M.S. (Retail Management)
+                </option>
+                <option value="B.Com. (A&F)">B.Com. (A&F)</option>
+                <option value="B.Com. (B&I)">B.Com. (B&I)</option>
+                <option value="B.Com. (F.M.)">B.Com. (F.M.)</option>
+                <option value="B.Com. (Management Studies)">
+                  B.Com. (Management Studies)
+                </option>
+                <option value="B.Com. (Management Studies Logistics)">
+                  B.Com. (Management Studies Logistics)
+                </option>
+                <option value="M.A. Hindi">M.A. Hindi</option>
+                <option value="M.A. Marathi">M.A. Marathi</option>
+                <option value="M.A. Business Economics">
+                  M.A. Business Economics
+                </option>
+                <option value="M.A. Geography">M.A. Geography</option>
+                <option value="M.A. Political Science">
+                  M.A. Political Science
+                </option>
+                <option value="M.A. History">M.A. History</option>
+                <option value="M.Sc. Botany">M.Sc. Botany</option>
+                <option value="M.Sc. Chemistry(Organic)">
+                  M.Sc. Chemistry(Organic)
+                </option>
+                <option value="M.Sc. Chemistry(Analytical)">
+                  M.Sc. Chemistry(Analytical)
+                </option>
+                <option value="M.Sc. Food Science and Nutraceuticals">
+                  M.Sc. Food Science and Nutraceuticals
+                </option>
+                <option value="M.Sc. Physics(Electronics)">
+                  M.Sc. Physics(Electronics)
+                </option>
+                <option value="M.Sc. Physics(Materials Science/ Computational Physics)">
+                  M.Sc. Physics(Materials Science/ Computational Physics)
+                </option>
+                <option value="M.Sc. Applied Mathematics">
+                  M.Sc. Applied Mathematics
+                </option>
+                <option value="M.Sc. Microbiology">M.Sc. Microbiology</option>
+                <option value="M.Sc. Microbiology(Industrial)">
+                  M.Sc. Microbiology(Industrial)
+                </option>
+                <option value="M.Sc. Zoology(Endocrinology)">
+                  M.Sc. Zoology(Endocrinology)
+                </option>
+                <option value="M.Sc. Zoology(Cell Biology and Cytogenetics)">
+                  M.Sc. Zoology(Cell Biology and Cytogenetics)
+                </option>
+                <option value="M.Sc. (C.S.)">M.Sc. (C.S.)</option>
+                <option value="M.Sc. I.T. (Cloud Computing)">
+                  M.Sc. I.T. (Cloud Computing)
+                </option>
+                <option value="M.Sc. AI">M.Sc. AI</option>
+                <option value="M.Sc. DSBDA">M.Sc. DSBDA</option>
+                <option value="M.Sc. Cyber Security">
+                  M.Sc. Cyber Security
+                </option>
+                <option value="M.Sc. BioTechnology">M.Sc. BioTechnology</option>
+                <option value="M.Sc. Industrial BioTechnology">
+                  M.Sc. Industrial BioTechnology
+                </option>
+                <option value="M.Sc. Bioanalytical Science">
+                  M.Sc. Bioanalytical Science
+                </option>
+                <option value="M.Com. Adv. Accountancy">
+                  M.Com. Adv. Accountancy
+                </option>
+                <option value="M.Com. Banking and Finance">
+                  M.Com. Banking and Finance
+                </option>
+                <option value="M.Com. A&F">M.Com. A&F</option>
+                <option value="M.Com. E-Commerce">M.Com. E-Commerce</option>
+                <option value="M.Sc. Finance">M.Sc. Finance</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="course-class">Academic Year</label>
               <select
                 name="year"
                 required
@@ -242,30 +311,12 @@ const Form = () => {
                   setYear(e.target.value);
                 }}
               >
-                <option value="">Select Year</option>
+                <option value="">Select Academic Year</option>
                 <option value="FY">FY</option>
                 <option value="SY">SY</option>
                 <option value="TY">TY</option>
                 <option value="Part 1">Part 1</option>
                 <option value="Part 2">Part 2</option>
-              </select>
-              <select
-                required
-                name="course"
-                id="course"
-                onChange={(e) => {
-                  setCourse(e.target.value);
-                }}
-              >
-                <option value="">Select Course</option>
-                <option value="IT">Information Technology</option>
-                <option value="CS">Computer Science</option>
-                <option value="DS">Data Science</option>
-                <option value="Bvoc CSF">
-                  Bvoc Cyber Security & Forensics
-                </option>
-                <option value="BCA">BCA</option>
-                <option value="AI">AI</option>
               </select>
             </div>
             <div>
