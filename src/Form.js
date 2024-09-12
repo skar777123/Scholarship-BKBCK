@@ -18,7 +18,7 @@ const Form = () => {
     "November",
     "December",
   ];
-
+  
   const d = new Date();
   const att1 = month[d.getMonth() - 2];
   const att2 = month[d.getMonth() - 1];
@@ -553,7 +553,7 @@ const Form = () => {
               </label>
               <input
                 type="text"
-                required
+                
                 placeholder="Yes or No"
                 value={applyforscholarshipfreeship}
                 onChange={(e) => {
@@ -567,7 +567,7 @@ const Form = () => {
               </label>
               <input
                 type="text"
-                required
+                
                 placeholder="Name of Scholarship you Applied"
                 value={ifyesApplied}
                 onChange={(e) => {
@@ -582,7 +582,7 @@ const Form = () => {
               </label>
               <input
                 type="text"
-                required
+                
                 placeholder=" Yes or No, and the Source of Assistance"
                 value={financialAssist}
                 onChange={(e) => {
@@ -711,7 +711,7 @@ const Form = () => {
               <input
                 type="text"
                 placeholder="Mention the ammount"
-                required
+                
                 value={reHOD}
                 onChange={(e) => {
                   setReHOD(e.target.value);
@@ -725,7 +725,7 @@ const Form = () => {
               <input
                 placeholder="Mention the ammount"
                 type="text"
-                required
+                
                 value={reVP}
                 onChange={(e) => {
                   setReVp(e.target.value);
@@ -739,7 +739,7 @@ const Form = () => {
               <input
                 placeholder="Mention the ammount"
                 type="text"
-                required
+                
                 value={reDoP}
                 onChange={(e) => {
                   setReDoP(e.target.value);
