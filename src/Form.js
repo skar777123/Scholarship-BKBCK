@@ -64,47 +64,87 @@ const Form = () => {
   const [loader4, setLoader4] = useState(false);
 
   const handleSubmit = async (e) => {
-    setMainLoader(true);
-    e.preventDefault();
-    await axios
-      .post("/form/Scholorship", {
-        name: name,
-        program: Maincourse,
-        courseFee: courseFee,
-        feeReceipt: feeReceipt.url,
-        DOB: dateofbirth,
-        studentId: studentid,
-        previousMarks: previousMarks,
-        curricular: curriculum,
-        mobile: mobileno,
-        email: emailId,
-        address: address,
-        aadhar: aadhar,
-        caste: caste,
-        fatherOcc: fatherOcc,
-        motherOcc: motherOcc,
-        Income: income,
-        IncomeUpload: incomeUpload,
-        OtherFoS: applyforscholarshipfreeship,
-        OtherFoSyes: ifyesApplied,
-        financeAssist: financialAssist,
-        bankName: bankName,
-        bankAccNo: accountno,
-        bankIFSC: ifsccode,
-        bankBranch: branch,
-        bankUpload: bankUpload,
-        ReHOD: reHOD,
-        ReVP: reVP,
-        ReDoP: reDoP,
-        attendance1: attendance1,
-        attendance2: attendance2,
-        eleBill: eleBill,
-      })
-      .then((res) => {
-        alert("Submited Succcessfully");
-        setMainLoader(false);
-      })
-      .catch((err) => alert("Server Occupied Try Later" + err.message));
+    if (
+      name === "" ||
+      emailId === "" ||
+      department === "" ||
+      dateofbirth === "" ||
+      course === "" ||
+      year === "" ||
+      courseFee === "" ||
+      mobileno === "" ||
+      address === "" ||
+      studentid === "" ||
+      curriculum === "" ||
+      applyforscholarshipfreeship === "" ||
+      aadhar === "" ||
+      bankName === "" ||
+      accountno === "" ||
+      ifsccode === "" ||
+      branch === "" ||
+      bankAddress === "" ||
+      caste === "" ||
+      previousMarks === "" ||
+      fatherOcc === "" ||
+      motherOcc === "" ||
+      income === "" ||
+      incomeUpload === "" ||
+      bankUpload === "" ||
+      reHOD === "" ||
+      reDoP === "" ||
+      attendance1 === "" ||
+      attendance2 === "" ||
+      eleBill === "" ||
+      ifyesApplied === "" ||
+      financialAssist === "" ||
+      feeReceipt === "" ||
+      reVP === ""
+    ) {
+      alert("Fill all the required fields");
+    } else {
+      setMainLoader(true);
+      e.preventDefault();
+      await axios
+        .post("/form/Scholorship", {
+          name: name,
+          department: department,
+          course: Maincourse,
+          courseFee: courseFee,
+          feeReceipt: feeReceipt.url,
+          DOB: dateofbirth,
+          studentId: studentid,
+          previousMarks: previousMarks,
+          curricular: curriculum,
+          mobile: mobileno,
+          email: emailId,
+          address: address,
+          aadhar: aadhar,
+          caste: caste,
+          fatherOcc: fatherOcc,
+          motherOcc: motherOcc,
+          Income: income,
+          IncomeUpload: incomeUpload,
+          OtherFoS: applyforscholarshipfreeship,
+          OtherFoSyes: ifyesApplied,
+          financeAssist: financialAssist,
+          bankName: bankName,
+          bankAccNo: accountno,
+          bankIFSC: ifsccode,
+          bankBranch: branch,
+          bankUpload: bankUpload,
+          ReHOD: reHOD,
+          ReVP: reVP,
+          ReDoP: reDoP,
+          attendance1: attendance1,
+          attendance2: attendance2,
+          eleBill: eleBill,
+        })
+        .then((res) => {
+          alert("Submited Succcessfully");
+          setMainLoader(false);
+        })
+        .catch((err) => alert("Server Occupied Try Later" + err.message ));
+    }
   };
   return (
     <div className="container">
