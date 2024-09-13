@@ -27,7 +27,7 @@ const Form = () => {
   const [program, setProgram] = useState("");
   const [dateofbirth, setDateofbirth] = useState("");
   const [year, setYear] = useState("");
-  let Maincourse = year + " " + program;
+  const Maincourse = year + " " + program;
   const [courseFee, setCourseFee] = useState("");
   const [mobileno, setMobileno] = useState("");
   const [address, setAddress] = useState("");
@@ -240,7 +240,7 @@ const Form = () => {
                 <option value="ST">ST</option>
                 <option value="OBC">OBC</option>
                 <option value="NT">NT</option>
-                <option value="EWS">EWS</option>
+                <option value="OPEN">OPEN</option>
               </select>
             </div>
           </div>
@@ -277,9 +277,7 @@ const Form = () => {
                   setProgram(e.target.value);
                 }}
               >
-                <option value="" disabled>
-                  Select your Department
-                </option>
+                <option value="">Select Program</option>
                 <option value="B.A. Hindi">B.A. Hindi</option>
                 <option value="B.A. Marathi">B.A. Marathi</option>
                 <option value="B.A. English">B.A. English</option>
@@ -401,15 +399,13 @@ const Form = () => {
               </label>
               <select
                 name="year"
+                placeholder="Select Year"
                 required
-                id="year"
                 onChange={(e) => {
                   setYear(e.target.value);
                 }}
               >
-                <option value="" disabled>
-                  Select Academic Year
-                </option>
+                <option value=""> Select Year </option>
                 <option value="FY">FY</option>
                 <option value="SY">SY</option>
                 <option value="TY">TY</option>
