@@ -18,7 +18,7 @@ const Form = () => {
     "November",
     "December",
   ];
-  
+
   const d = new Date();
   const att1 = month[d.getMonth() - 2];
   const att2 = month[d.getMonth() - 1];
@@ -33,6 +33,7 @@ const Form = () => {
   const [address, setAddress] = useState("");
   const [studentid, setStudentid] = useState("");
   const [curriculum, setCurriculum] = useState("");
+  const [curriculumJustification, setCurriculumJustification] = useState("");
   const [applyforscholarshipfreeship, setApplyforscholarshipfreeship] =
     useState("");
   const [aadhar, setAadhar] = useState("");
@@ -57,63 +58,68 @@ const Form = () => {
   const [financialAssist, setFinancialAssist] = useState("");
   const [feeReceipt, setFeeReceipt] = useState("");
   const [reVP, setReVp] = useState("");
+  const [photo, setPhoto] = useState("");
+  const [sign, setSign] = useState("");
   const [mainLoader, setMainLoader] = useState(false);
   const [loader, setLoader] = useState(false);
   const [loader2, setLoader2] = useState(false);
   const [loader3, setLoader3] = useState(false);
   const [loader4, setLoader4] = useState(false);
+  const [loader5, setLoader5] = useState(false);
+  const [loader6, setLoader6] = useState(false);
 
   const handleSubmit = async (e) => {
-
-      setMainLoader(true);
-      e.preventDefault();
-      await axios
-        .post("/form/Scholorship", {
-          name: name,
-          program: program,
-          courseFee: courseFee,
-          feeReceipt: feeReceipt,
-          DOB: dateofbirth,
-          studentId: studentid,
-          previousMarks: previousMarks,
-          curricular: curriculum,
-          mobile: mobileno,
-          email: emailId,
-          address: address,
-          aadhar: aadhar,
-          caste: caste,
-          fatherOcc: fatherOcc,
-          motherOcc: motherOcc,
-          Income: income,
-          IncomeUpload: incomeUpload,
-          OtherFoS: applyforscholarshipfreeship,
-          OtherFoSyes: ifyesApplied,
-          financeAssist: financialAssist,
-          bankName: bankName,
-          bankAccNo: accountno,
-          bankIFSC: ifsccode,
-          bankBranch: branch,
-          bankUpload: bankUpload,
-          ReHOD: reHOD,
-          ReVP: reVP,
-          ReDoP: reDoP,
-          attendance1: attendance1,
-          attendance2: attendance2,
-          eleBill: eleBill,
-        })
-        .then((res) => {
-          alert("Submited Succcessfully");
-          setMainLoader(false);
-        })
-        .catch((err) => alert("Server Occupied Try Later" + err.message ));
-    
-    
+    setMainLoader(true);
+    e.preventDefault();
+    await axios
+      .post("/form/Scholorship", {
+        name: name,
+        program: Maincourse,
+        courseFee: courseFee,
+        feeReceipt: feeReceipt,
+        DOB: dateofbirth,
+        studentId: studentid,
+        previousMarks: previousMarks,
+        curricular: curriculum + " - " + curriculumJustification,
+        mobile: mobileno,
+        email: emailId,
+        address: address,
+        aadhar: aadhar,
+        caste: caste,
+        fatherOcc: fatherOcc,
+        motherOcc: motherOcc,
+        Income: income,
+        IncomeUpload: incomeUpload,
+        OtherFoS: applyforscholarshipfreeship,
+        OtherFoSyes: ifyesApplied,
+        financeAssist: financialAssist,
+        bankName: bankName,
+        bankAccNo: accountno,
+        bankIFSC: ifsccode,
+        bankBranch: branch,
+        bankUpload: bankUpload,
+        ReHOD: reHOD,
+        ReVP: reVP,
+        ReDoP: reDoP,
+        attendance1: attendance1,
+        attendance2: attendance2,
+        eleBill: eleBill,
+        photo: photo,
+        sign: sign,
+      })
+      .then((res) => {
+        alert("Submited Succcessfully");
+        setMainLoader(false);
+      })
+      .catch((err) => alert("Server Occupied Try Later" + err.message));
   };
   return (
     <div className="container">
       <h1>
-        Scholarship to the Needy and Deserving Students {"        "}{" "}
-        <span style={{ color: "red" }}>[All Fields are required]</span>{" "}
+        Scholarship to the Needy and Deserving Students <br />
+        <span style={{ color: "red", fontSize: 17 }}>
+          * marked are compulsory
+        </span>{" "}
       </h1>
       <form onSubmit={handleSubmit}>
         {/* Personal Details Section */}
@@ -121,7 +127,9 @@ const Form = () => {
           <div className="section-title">Personal Information</div>
           <div className="form-grid">
             <div>
-              <label htmlFor="student-name">Name of the Student</label>
+              <label htmlFor="student-name">
+                Name of the Student <span style={{ color: "red" }}>*</span>{" "}
+              </label>
               <input
                 type="text"
                 id="student-name"
@@ -135,7 +143,9 @@ const Form = () => {
               />
             </div>
             <div>
-              <label htmlFor="DOB">DOB</label>
+              <label htmlFor="DOB">
+                DOB <span style={{ color: "red" }}>*</span>{" "}
+              </label>
               <input
                 type="date"
                 id="DOB"
@@ -149,7 +159,99 @@ const Form = () => {
               />
             </div>
             <div>
-              <label htmlFor="student-id">Student ID</label>
+              <label htmlFor="mobile">
+                Mobile Number <span style={{ color: "red" }}>*</span>{" "}
+              </label>
+              <input
+                type="text"
+                id="mobile"
+                name="mobile"
+                required
+                placeholder="Mobile number"
+                value={mobileno}
+                onChange={(e) => {
+                  setMobileno(e.target.value);
+                }}
+              />
+            </div>
+            <div>
+              <label htmlFor="email">
+                Email <span style={{ color: "red" }}>*</span>{" "}
+              </label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your Email"
+                name="email"
+                required
+                value={emailId}
+                onChange={(e) => {
+                  setEmailId(e.target.value);
+                }}
+              />
+            </div>
+            <div>
+              <label htmlFor="address">
+                Address <span style={{ color: "red" }}>*</span>{" "}
+              </label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                placeholder="Enter your Address"
+                required
+                value={address}
+                onChange={(e) => {
+                  setAddress(e.target.value);
+                }}
+              />
+            </div>
+            <div>
+              <label htmlFor="aadhar">
+                Aadhar No. <span style={{ color: "red" }}>*</span>{" "}
+              </label>
+              <input
+                type="text"
+                id="aadhar"
+                placeholder="Enter aadhar no."
+                name="aadhar"
+                required
+                value={aadhar}
+                onChange={(e) => {
+                  setAadhar(e.target.value);
+                }}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="caste">
+                Caste <span style={{ color: "red" }}>*</span>{" "}
+              </label>
+              <select
+                required
+                name="caste"
+                id="caste"
+                onChange={(e) => {
+                  setCaste(e.target.value);
+                }}
+              >
+                <option value="">Select your Caste</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+                <option value="OBC">OBC</option>
+                <option value="NT">NT</option>
+                <option value="EWS">EWS</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div className="form-section">
+          <div className="section-title">Academic Details</div>
+          <div className="form-grid">
+            <div>
+              <label htmlFor="student-id">
+                Student ID <span style={{ color: "red" }}>*</span>{" "}
+              </label>
               <input
                 type="text"
                 id="student-id"
@@ -164,22 +266,9 @@ const Form = () => {
             </div>
 
             <div>
-              <label htmlFor="mobile">Mobile Number</label>
-              <input
-                type="text"
-                id="mobile"
-                name="mobile"
-                required
-                placeholder="mobile number"
-                value={mobileno}
-                onChange={(e) => {
-                  setMobileno(e.target.value);
-                }}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="department">Program</label>
+              <label htmlFor="department">
+                Program <span style={{ color: "red" }}>*</span>{" "}
+              </label>
               <select
                 required
                 name="department"
@@ -188,7 +277,9 @@ const Form = () => {
                   setProgram(e.target.value);
                 }}
               >
-                <option value="">Select your Department</option>
+                <option value="" disabled>
+                  Select your Department
+                </option>
                 <option value="B.A. Hindi">B.A. Hindi</option>
                 <option value="B.A. Marathi">B.A. Marathi</option>
                 <option value="B.A. English">B.A. English</option>
@@ -305,7 +396,9 @@ const Form = () => {
               </select>
             </div>
             <div>
-              <label htmlFor="course-class">Academic Year</label>
+              <label htmlFor="course-class">
+                Academic Year <span style={{ color: "red" }}>*</span>{" "}
+              </label>
               <select
                 name="year"
                 required
@@ -314,7 +407,9 @@ const Form = () => {
                   setYear(e.target.value);
                 }}
               >
-                <option value="">Select Academic Year</option>
+                <option value="" disabled>
+                  Select Academic Year
+                </option>
                 <option value="FY">FY</option>
                 <option value="SY">SY</option>
                 <option value="TY">TY</option>
@@ -323,7 +418,9 @@ const Form = () => {
               </select>
             </div>
             <div>
-              <label htmlFor="course-fees">Course Fees</label>
+              <label htmlFor="course-fees">
+                Course Fees <span style={{ color: "red" }}>*</span>{" "}
+              </label>
               <input
                 type="text"
                 id="course-fees"
@@ -370,94 +467,114 @@ const Form = () => {
               {loader ? <Vortex /> : <></>}
             </div>
             <div>
-              <label htmlFor="mobile">
-                Curriculor/ Co.Curriculor / Extra Curriculor{" "}
+              <label htmlFor="previousMarks">
+                Previous Term Marks <span style={{ color: "red" }}>*</span>{" "}
+                <br />
+                {year === "FY" ? (
+                  <span
+                    style={{
+                      color: "red",
+                      fontSize: 13,
+                    }}
+                  >
+                    Input your 12th Percentage
+                  </span>
+                ) : (
+                  <></>
+                )}
+                {year === "SY" ? (
+                  <span
+                    style={{
+                      color: "red",
+                      fontSize: 13,
+                    }}
+                  >
+                    Input your Sem-2 Grade
+                  </span>
+                ) : (
+                  <></>
+                )}
+                {year === "TY" ? (
+                  <span
+                    style={{
+                      color: "red",
+                      fontSize: 13,
+                    }}
+                  >
+                    Input your Sem-4 Grade
+                  </span>
+                ) : (
+                  <></>
+                )}
+                {year === "Part 1" ? (
+                  <span
+                    style={{
+                      color: "red",
+                      fontSize: 13,
+                    }}
+                  >
+                    Input your Graduation Grade
+                  </span>
+                ) : (
+                  <></>
+                )}
+                {year === "Part 2" ? (
+                  <span
+                    style={{
+                      color: "red",
+                      fontSize: 13,
+                    }}
+                  >
+                    Input your Part-1 Sem-2 Grade
+                  </span>
+                ) : (
+                  <></>
+                )}
               </label>
-              <input
-                type="text"
-                id="mobile"
-                placeholder="Enter Curriculor"
-                name="mobile"
-                required
-                value={curriculum}
-                onChange={(e) => {
-                  setCurriculum(e.target.value);
-                }}
-              />
-            </div>
-            <div>
-              <label htmlFor="email">Email </label>
-              <input
-                type="email"
-                id="email"
-                placeholder="Enter your Email"
-                name="email"
-                required
-                value={emailId}
-                onChange={(e) => {
-                  setEmailId(e.target.value);
-                }}
-              />
-            </div>
-            <div>
-              <label htmlFor="aadhar">Aadhar No.</label>
-              <input
-                type="text"
-                id="aadhar"
-                placeholder="Enter aadhar no."
-                name="aadhar"
-                required
-                value={aadhar}
-                onChange={(e) => {
-                  setAadhar(e.target.value);
-                }}
-              />
-            </div>
-            <div>
-              <label htmlFor="address">Address</label>
-              <input
-                type="text"
-                id="address"
-                name="address"
-                placeholder="Enter your Address"
-                required
-                value={address}
-                onChange={(e) => {
-                  setAddress(e.target.value);
-                }}
-              />
-            </div>
-            <div>
-              <label htmlFor="caste">Caste</label>
-              <select
-                required
-                name="caste"
-                id="caste"
-                onChange={(e) => {
-                  setCaste(e.target.value);
-                }}
-              >
-                <option value="">Select your Caste</option>
-                <option value="SC">SC</option>
-                <option value="ST">ST</option>
-                <option value="OBC">OBC</option>
-                <option value="NT">NT</option>
-                <option value="EWS">EWS</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="previousMarks">Previous Term Marks</label>
               <input
                 type="text"
                 id="previousMarks"
                 name="previousMarks"
-                placeholder="Fy - Enter 12th marks || SY & TY - Enter Last Sem Marks"
+                placeholder="Enter you Marks"
                 required
                 value={previousMarks}
                 onChange={(e) => {
                   setPreviousMarks(e.target.value);
                 }}
               />
+            </div>
+            <div>
+              <label htmlFor="mobile">
+                Curriculor/ Co.Curriculor / Extra Curriculor{" "}
+              </label>
+              <select
+                placeholder="Enter Curriculor"
+                name="curriculor"
+                value={curriculum}
+                onChange={(e) => {
+                  setCurriculum(e.target.value);
+                }}
+              >
+                <option value="" disabled>
+                  Select Curriculor
+                </option>
+                <option value="NSS">NSS</option>
+                <option value="NCC">NCC</option>
+                <option value="Sports">Sports</option>
+                <option value="Rotract">Rotract</option>
+                <option value="Other">Other</option>
+              </select>
+              {curriculum === "" ? (
+                <></>
+              ) : (
+                <input
+                  type="text"
+                  placeholder="Justify your contribution in the Curriculor"
+                  onChange={(e) => {
+                    setCurriculumJustification(e.target.value);
+                  }}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -466,7 +583,9 @@ const Form = () => {
           <div className="section-title">Parent Information</div>
           <div className="form-grid">
             <div>
-              <label htmlFor="father-occupation">Father's Occupation</label>
+              <label htmlFor="father-occupation">
+                Father's Occupation <span style={{ color: "red" }}>*</span>{" "}
+              </label>
               <input
                 type="text"
                 id="father-occupation"
@@ -480,7 +599,9 @@ const Form = () => {
               />
             </div>
             <div>
-              <label htmlFor="mother-occupation">Mother's Occupation</label>
+              <label htmlFor="mother-occupation">
+                Mother's Occupation <span style={{ color: "red" }}>*</span>{" "}
+              </label>
               <input
                 type="text"
                 id="mother-occupation"
@@ -494,18 +615,25 @@ const Form = () => {
               />
             </div>
             <div>
-              <label htmlFor="income">Income</label>
-              <input
-                type="text"
-                id="income"
-                name="income"
-                placeholder="Income in digits"
+              <label htmlFor="income">
+                Income <span style={{ color: "red" }}>*</span>{" "}
+              </label>
+              <select
                 required
                 value={income}
                 onChange={(e) => {
                   setIncome(e.target.value);
                 }}
-              />
+              >
+                <option value="" disabled>
+                  Select the income
+                </option>
+                <option value="0 to 50000">0 to 50000</option>
+                <option value="50000 to 1 Lakh">50000 to 1 Lakh</option>
+                <option value="1 lakh to 2.5 lakh">1 lakh to 2.5 Lakh</option>
+                <option value="2.5 lakh to 5 lakh">2.5 lakh to 5 Lakh</option>
+                <option value="5 lakh above">5 Lakh above</option>
+              </select>
             </div>
             <div>
               <label htmlFor="income-certificate">
@@ -549,17 +677,21 @@ const Form = () => {
           <div className="form-grid">
             <div>
               <label htmlFor="scholarship-applied">
-                Have you applied for any Freeship/Scholarship?
+                Have you applied for any Freeship/Scholarship?{" "}
+                <span style={{ color: "red" }}>*</span>{" "}
               </label>
-              <input
-                type="text"
-                
-                placeholder="Yes or No"
+              <select
                 value={applyforscholarshipfreeship}
                 onChange={(e) => {
                   setApplyforscholarshipfreeship(e.target.value);
                 }}
-              />
+              >
+                <option Value="" disabled>
+                  Select Below
+                </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </div>
             <div>
               <label htmlFor="scholarship-details">
@@ -567,7 +699,6 @@ const Form = () => {
               </label>
               <input
                 type="text"
-                
                 placeholder="Name of Scholarship you Applied"
                 value={ifyesApplied}
                 onChange={(e) => {
@@ -582,7 +713,6 @@ const Form = () => {
               </label>
               <input
                 type="text"
-                
                 placeholder=" Yes or No, and the Source of Assistance"
                 value={financialAssist}
                 onChange={(e) => {
@@ -597,7 +727,9 @@ const Form = () => {
           <div className="section-title">Bank Details</div>
           <div className="form-grid">
             <div>
-              <label htmlFor="bank-name">Bank Name</label>
+              <label htmlFor="bank-name">
+                Bank Name <span style={{ color: "red" }}>*</span>{" "}
+              </label>
               <input
                 type="text"
                 id="bank-name"
@@ -611,7 +743,9 @@ const Form = () => {
               />
             </div>
             <div>
-              <label htmlFor="account-name">Account No.</label>
+              <label htmlFor="account-name">
+                Account No. <span style={{ color: "red" }}>*</span>{" "}
+              </label>
               <input
                 type="text"
                 id="account-name"
@@ -625,7 +759,9 @@ const Form = () => {
               />
             </div>
             <div>
-              <label htmlFor="ifsc-code">IFSC Code</label>
+              <label htmlFor="ifsc-code">
+                IFSC Code <span style={{ color: "red" }}>*</span>{" "}
+              </label>
               <input
                 type="text"
                 id="ifsc-code"
@@ -639,7 +775,9 @@ const Form = () => {
               />
             </div>
             <div>
-              <label htmlFor="bank-branch">Bank Branch</label>
+              <label htmlFor="bank-branch">
+                Bank Branch <span style={{ color: "red" }}>*</span>{" "}
+              </label>
               <input
                 type="text"
                 required
@@ -651,7 +789,9 @@ const Form = () => {
               />
             </div>
             <div>
-              <label htmlFor="bank-address">Bank Address</label>
+              <label htmlFor="bank-address">
+                Bank Address <span style={{ color: "red" }}>*</span>{" "}
+              </label>
               <input
                 type="text"
                 placeholder="Address of the Bank"
@@ -711,7 +851,6 @@ const Form = () => {
               <input
                 type="text"
                 placeholder="Mention the ammount"
-                
                 value={reHOD}
                 onChange={(e) => {
                   setReHOD(e.target.value);
@@ -725,7 +864,6 @@ const Form = () => {
               <input
                 placeholder="Mention the ammount"
                 type="text"
-                
                 value={reVP}
                 onChange={(e) => {
                   setReVp(e.target.value);
@@ -739,7 +877,6 @@ const Form = () => {
               <input
                 placeholder="Mention the ammount"
                 type="text"
-                
                 value={reDoP}
                 onChange={(e) => {
                   setReDoP(e.target.value);
@@ -755,7 +892,7 @@ const Form = () => {
             <div>
               <label htmlFor="attendance-1-month">
                 Attendance of{" " + att1 + " "}
-                month
+                month <span style={{ color: "red" }}>*</span>{" "}
               </label>
               <input
                 type="text"
@@ -772,7 +909,7 @@ const Form = () => {
             <div>
               <label htmlFor="attendance-2-months">
                 Attendance of{" " + att2 + " "}
-                month
+                month <span style={{ color: "red" }}>*</span>{" "}
               </label>
               <input
                 type="text"
@@ -790,12 +927,16 @@ const Form = () => {
         </div>
         {/* Miscellaneous Documents Section */}
         <div className="form-section">
-          <div className="section-title">Documents</div>
+          <div className="section-title">
+            Documents{" "}
+            <span style={{ fontStyle: "italic", fontSize: 13 }}>
+              [ Upload Image ]
+            </span>
+          </div>
           <div className="form-grid">
             <div>
               <label htmlFor="electric-bill">
-                Electric Bill{" "}
-                <span style={{ color: "red" }}>* upload image</span>
+                Electricity Bill <span style={{ color: "red" }}>*</span>{" "}
               </label>
               <input
                 type="file"
@@ -825,6 +966,72 @@ const Form = () => {
                 }}
               />
               {loader4 ? <Vortex /> : <></>}
+            </div>
+            <div>
+              <label htmlFor="photo">
+                Photo <span style={{ color: "red" }}>*</span>{" "}
+              </label>
+              <input
+                type="file"
+                required
+                accept="image/*"
+                onChange={async (e) => {
+                  setLoader5(true);
+                  const data = new FormData();
+                  data.append("file", e.target.files[0]);
+                  data.append("upload_preset", "SW-birla");
+                  data.append("cloud_name", "dapajcd1d");
+
+                  if (data === null) {
+                    alert("upload image");
+                  }
+
+                  const res = await fetch(
+                    "https://api.cloudinary.com/v1_1/dapajcd1d/image/upload",
+                    {
+                      method: "POST",
+                      body: data,
+                    }
+                  );
+                  const cloudData = await res.json();
+                  setPhoto(cloudData.url);
+                  setLoader5(false);
+                }}
+              />
+              {loader5 ? <Vortex /> : <></>}
+            </div>
+            <div>
+              <label htmlFor="signature">
+                Signature <span style={{ color: "red" }}>*</span>{" "}
+              </label>
+              <input
+                type="file"
+                required
+                accept="image/*"
+                onChange={async (e) => {
+                  setLoader6(true);
+                  const data = new FormData();
+                  data.append("file", e.target.files[0]);
+                  data.append("upload_preset", "SW-birla");
+                  data.append("cloud_name", "dapajcd1d");
+
+                  if (data === null) {
+                    alert("upload image");
+                  }
+
+                  const res = await fetch(
+                    "https://api.cloudinary.com/v1_1/dapajcd1d/image/upload",
+                    {
+                      method: "POST",
+                      body: data,
+                    }
+                  );
+                  const cloudData = await res.json();
+                  setSign(cloudData.url);
+                  setLoader6(false);
+                }}
+              />
+              {loader6 ? <Vortex /> : <></>}
             </div>
           </div>
         </div>
