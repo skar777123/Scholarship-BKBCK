@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import View from "./View";
 import Check from "./Check";
+import Thank from "./Thank";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/Admin-login" element={<Admin />} />
           <Route exact path="/Admin-view" element={<View />} />
           <Route exact path="/check" element={<Check />} />
+          <Route exact path="/main/Thanks" element={<Thank />} />
         </Routes>
       </BrowserRouter>
     </div>

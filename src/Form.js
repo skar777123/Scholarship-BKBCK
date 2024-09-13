@@ -110,6 +110,7 @@ const Form = () => {
       .then((res) => {
         alert("Submited Succcessfully");
         setMainLoader(false);
+        window.location.href='/main/Thanks'
       })
       .catch((err) => alert("Server Occupied Try Later" + err.message));
   };
