@@ -686,7 +686,7 @@ const Form = () => {
                   setApplyforscholarshipfreeship(e.target.value);
                 }}
               >
-                <option Value="" disabled>
+                <option value="" disabled>
                   Select Below
                 </option>
                 <option value="Yes">Yes</option>
