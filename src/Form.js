@@ -542,7 +542,7 @@ const Form = () => {
             </div>
             <div>
               <label htmlFor="mobile">
-                Curriculor/ Co.Curriculor / Extra Curriculor{" "}
+                Curricular/ Co-Curricular / Extra Curricular{" "}
               </label>
               <select
                 placeholder="Enter Curriculor"
