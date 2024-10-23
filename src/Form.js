@@ -112,7 +112,7 @@ const Form = () => {
         setMainLoader(false);
         window.location.href='/main/Thanks'
       })
-      .catch((err) => alert("Server Occupied Try Later" + err.message));
+      .catch((err) => alert("Server Occupied Try Later in few minute :::"));
   };
   return (
     <div className="container">
