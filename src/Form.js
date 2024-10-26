@@ -238,6 +238,7 @@ const Form = () => {
               >
                 <option value="">Select your Caste</option>
                 <option value="SC">SC</option>
+                <option value="SBC">SBC</option>
                 <option value="ST">ST</option>
                 <option value="OBC">OBC</option>
                 <option value="NT">NT</option>
