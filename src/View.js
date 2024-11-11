@@ -33,8 +33,9 @@ export default function View() {
           padding: 30,
           margin: 10,
           borderRadius: 20,
-          width: 600,
+          width: 610,
           position: "absolute",
+
         }}
       >
         <h1>Submitted Forms:{}</h1>

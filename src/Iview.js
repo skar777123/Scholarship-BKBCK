@@ -2,6 +2,7 @@ import React from "react";
 import "./Iview.css";
 
 export default function Iview(props) {
+  console.log(props)
   return (
     <div className="form-flex">
       <form>
@@ -30,28 +31,6 @@ export default function Iview(props) {
               />
             </div>
             <div>
-              <label htmlFor="student-id">Student ID</label>
-              <input
-                type="text"
-                id="student-id"
-                name="student-id"
-                required
-                readOnly
-                value={props.form.studentId}
-              />
-            </div>
-            <div>
-              <label htmlFor="class">Class</label>
-              <input
-                value={props.form.program}
-                type="text"
-                id="class"
-                name="class"
-                required
-                readOnly
-              />
-            </div>
-            <div>
               <label htmlFor="mobile">Mobile Number</label>
               <input
                 value={props.form.mobile}
@@ -59,38 +38,6 @@ export default function Iview(props) {
                 id="mobile"
                 name="mobile"
                 readOnly
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="course-fees">Course Fees</label>
-              <input
-                value={props.form.courseFee}
-                type="text"
-                id="course-fees"
-                name="course-fees"
-                required
-                readOnly
-              />
-            </div>
-            <div>
-              <label htmlFor="feeReceipt">Fee Receipt</label>
-              <img
-                src={props.form.feeReceipt}
-                alt="Fee Receipt"
-                readOnly
-                width={300}
-                height={300}
-              />
-            </div>
-            <div>
-              <label htmlFor="mobile">Curricular </label>
-              <input
-                value={props.form.curricular}
-                readOnly
-                type="text"
-                id="mobile"
-                name="mobile"
                 required
               />
             </div>
@@ -106,17 +53,6 @@ export default function Iview(props) {
               />
             </div>
             <div>
-              <label htmlFor="aadhar">Aadhar No.</label>
-              <input
-                value={props.form.aadhar}
-                type="text"
-                id="aadhar"
-                name="aadhar"
-                readOnly
-                required
-              />
-            </div>
-            <div>
               <label htmlFor="address">Address</label>
               <input
                 value={props.form.address}
@@ -128,6 +64,18 @@ export default function Iview(props) {
               />
             </div>
             <div>
+              <label htmlFor="aadhar">Aadhar No.</label>
+              <input
+                value={props.form.aadhar}
+                type="text"
+                id="aadhar"
+                name="aadhar"
+                readOnly
+                required
+              />
+            </div>
+
+            <div>
               <label htmlFor="caste">Caste</label>
               <input
                 value={props.form.caste}
@@ -138,6 +86,7 @@ export default function Iview(props) {
                 required
               />
             </div>
+
             <div>
               <label htmlFor="previousMarks">Previous Term Marks</label>
               <input
@@ -148,6 +97,31 @@ export default function Iview(props) {
                 readOnly
                 required
               />
+            </div>
+          </div>
+        </div>
+        <div className="form-section">
+          <div className="section-title">Academic Details</div>
+          <div className="form-grid">
+            <div>
+              <label>StudentId</label>
+              <input type="text" readOnly value={props.form.studentId} />
+            </div>
+            <div>
+              <label>Program</label>
+              <input type="text" readOnly value={props.form.program} />
+            </div>
+            <div>
+              <label>Course Fee</label>
+              <input type="text" readOnly value={props.form.courseFee} />
+            </div>
+            <div>
+              <label>Previous Terms Marks</label>
+              <input type="text" readOnly value={props.form.previousMarks} />
+            </div>
+            <div>
+              <label>Curriculor</label>
+              <input type="text" readOnly value={props.form.curricular} />
             </div>
           </div>
         </div>
@@ -263,7 +237,7 @@ export default function Iview(props) {
               />
             </div>
             <div>
-              <label htmlFor="bank-address">Bank Address</label>
+              <label htmlFor="bank-address">Bank Branch</label>
               <input value={props.form.bankBranch} />
             </div>
             <div>
@@ -286,19 +260,19 @@ export default function Iview(props) {
               <label htmlFor="hod-recommendation">
                 Recommendation from HOD
               </label>
-              <input readOnly value={props.form.ReHOD} />
+              <input readOnly value={props.form.ReHOD || "none"} />
             </div>
             <div>
               <label htmlFor="VP-recommendation">
                 Recommendation from Vice Principal
               </label>
-              <input readOnly value={props.form.ReVP} />
+              <input readOnly value={props.form.ReVP || "none"} />
             </div>
             <div>
               <label htmlFor="director-recommendation">
                 Recommendation from Director/Principal
               </label>
-              <input readOnly value={props.form.ReDoP} />
+              <input readOnly value={props.form.ReDoP || "none"} />
             </div>
           </div>
         </div>
@@ -341,6 +315,26 @@ export default function Iview(props) {
               <img
                 src={props.form.eleBill}
                 alt="Electric Bill"
+                width={300}
+                height={300}
+                readOnly
+              />
+            </div>
+            <div>
+              <label htmlFor="photo">Photo</label>
+              <img
+                src={props.form.photo}
+                alt="Photo"
+                width={300}
+                height={300}
+                readOnly
+              />
+            </div>
+            <div>
+              <label htmlFor="signature">Signature</label>
+              <img
+                src={props.form.sign}
+                alt="Signature"
                 width={300}
                 height={300}
                 readOnly
