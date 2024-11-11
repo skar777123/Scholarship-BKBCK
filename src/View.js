@@ -79,7 +79,7 @@ export default function View() {
                   <tr key={index}>
                     <th scope="row">{index + 1}</th>
                     <td>{item.name}</td>
-                    <td>{item.studentId}</td>
+                    <td>{item.studentId.substring(0,7)}</td>
                     <td>{item.program}</td>
                     <td>
                       <div
