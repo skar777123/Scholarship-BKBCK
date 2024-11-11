@@ -112,7 +112,7 @@ const Form = () => {
         setMainLoader(false);
         window.location.href='/main/Thanks'
       })
-      .catch((err) => alert("Server Occupied Try Later" + err.message));
+      .catch((err) => alert("Server Occupied Try Later in few minute :::"));
   };
   return (
     <div className="container">
@@ -238,6 +238,7 @@ const Form = () => {
               >
                 <option value="">Select your Caste</option>
                 <option value="SC">SC</option>
+                <option value="SBC">SBC</option>
                 <option value="ST">ST</option>
                 <option value="OBC">OBC</option>
                 <option value="NT">NT</option>
@@ -298,6 +299,7 @@ const Form = () => {
                 <option value="B.Sc. Zoology">B.Sc. Zoology</option>
                 <option value="B.Sc. (C.S.)">B.Sc. (C.S.)</option>
                 <option value="BCA">BCA</option>
+                <option value="B.Sc. Cybersecurity">B.Sc. Cybersecurity</option>
                 <option value="B.Sc. (I.T.)">B.Sc. (I.T.)</option>
                 <option value="B.Sc. Data Science">B.Sc. Data Science</option>
                 <option value="B.Sc. Biotechnology">B.Sc. Biotechnology</option>
@@ -368,6 +370,7 @@ const Form = () => {
                   M.Sc. Zoology(Cell Biology and Cytogenetics)
                 </option>
                 <option value="M.Sc. (C.S.)">M.Sc. (C.S.)</option>
+                  <option value="M.Sc. Cybersecurity">M.Sc. Cybersecurity</option>
                 <option value="M.Sc. I.T. (Cloud Computing)">
                   M.Sc. I.T. (Cloud Computing)
                 </option>
@@ -542,7 +545,7 @@ const Form = () => {
             </div>
             <div>
               <label htmlFor="mobile">
-                Curriculor/ Co.Curriculor / Extra Curriculor{" "}
+                Curricular/ Co-Curricular / Extra Curricular{" "}
               </label>
               <select
                 placeholder="Enter Curriculor"
