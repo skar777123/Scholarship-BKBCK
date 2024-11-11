@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FidgetSpinner } from "react-loader-spinner";
 import Iview from "./Iview";
+import { Trash2 } from "lucide-react";
 
 export default function View() {
   const [data, setData] = useState();
@@ -19,6 +20,7 @@ export default function View() {
       setLoader(true);
     }
   }
+  
   useEffect(() => {
     fetch();
   }, []);
@@ -64,6 +66,15 @@ export default function View() {
                   setForm(item);
                   console.log(form);
                 }
+                async function deleteUser() {
+                  await axios
+                    .post("/form/delete", {
+                      id: data.id,
+                    })
+                    .then(() => {
+                      window.location.reload();
+                    });
+                }
                 return (
                   <tr key={index}>
                     <th scope="row">{index + 1}</th>
@@ -71,7 +82,18 @@ export default function View() {
                     <td>{item.studentId}</td>
                     <td>{item.program}</td>
                     <td>
-                      <button onClick={formFetch}>Check Form</button>
+                      <div
+                        style={{
+                          flex: 1,
+                          flexDirection: "row",
+                        }}
+                      >
+                        <button onClick={formFetch}>Check Form</button>
+                        <Trash2
+                          style={{ cursor: "pointer" }}
+                          onClick={deleteUser}
+                        />
+                      </div>
                     </td>
                   </tr>
                 );
