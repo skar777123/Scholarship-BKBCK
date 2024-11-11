@@ -20,7 +20,7 @@ export default function View() {
       setLoader(true);
     }
   }
-  
+
   useEffect(() => {
     fetch();
   }, []);
@@ -66,15 +66,15 @@ export default function View() {
                   setForm(item);
                   console.log(form);
                 }
-                async function deleteUser() {
-                  await axios
-                    .post("/form/delete", {
-                      id: data.id,
-                    })
-                    .then(() => {
-                      window.location.reload();
-                    });
-                }
+                // async function deleteUser() {
+                //   await axios
+                //     .post("/form/delete", {
+                //       id: data.id,
+                //     })
+                //     .then(() => {
+                //       window.location.reload();
+                //     });
+                // }
                 return (
                   <tr key={index}>
                     <th scope="row">{index + 1}</th>
@@ -89,10 +89,10 @@ export default function View() {
                         }}
                       >
                         <button onClick={formFetch}>Check Form</button>
-                        <Trash2
+                        {/* <Trash2
                           style={{ cursor: "pointer" }}
                           onClick={deleteUser}
-                        />
+                        /> */}
                       </div>
                     </td>
                   </tr>
