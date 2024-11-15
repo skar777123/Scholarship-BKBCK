@@ -33,7 +33,7 @@ export default function View() {
           padding: 30,
           margin: 10,
           borderRadius: 20,
-          width: 610,
+          width: 680,
           position: "absolute",
 
         }}
@@ -107,10 +107,10 @@ export default function View() {
           position: "absolute",
           backgroundColor: "whitesmoke",
           padding: 30,
-          marginLeft: 640,
+          marginLeft: 700,
           marginTop: 20,
           borderRadius: 10,
-          width: 870,
+          width: 800,
         }}
       >
         {form ? (

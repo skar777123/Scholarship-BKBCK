@@ -2,11 +2,35 @@ import React from "react";
 import "./Iview.css";
 
 export default function Iview(props) {
-  console.log(props)
+  console.log(props);
   return (
     <div className="form-flex">
       <form>
         {/* Personal Details Section */}
+        {/* <div
+          className="form-group"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <span
+            style={{
+              color: "green",
+            }}
+          >
+            *Clicking Approve will send approved message to Students Mobile No.
+          </span>
+          <input
+            type="button"
+            className="btn btn-success"
+            value="Approve"
+            style={{
+              width: "100px",
+            }}
+          />
+        </div> */}
         <div className="form-section">
           <div className="section-title">Personal Information</div>
           <div className="form-grid">
@@ -116,6 +140,16 @@ export default function Iview(props) {
               <input type="text" readOnly value={props.form.courseFee} />
             </div>
             <div>
+              <label>Fee Receipt</label>
+              <img
+                src={props.form.feeReceipt}
+                alt="Fee Receipt- user didn't provided document in .png,.jpg,.jpeg format"
+                width={300}
+                height={300}
+                readOnly
+              />
+            </div>
+            <div>
               <label>Previous Terms Marks</label>
               <input type="text" readOnly value={props.form.previousMarks} />
             </div>
@@ -166,7 +200,7 @@ export default function Iview(props) {
               <label htmlFor="income-certificate">Income Certificate</label>
               <img
                 src={props.form.IncomeUpload}
-                alt="Income Doc"
+                alt="Income Doc- user didn't provided document in .png,.jpg,.jpeg format"
                 readOnly
                 width={300}
                 height={300}
@@ -244,7 +278,7 @@ export default function Iview(props) {
               <label htmlFor="bank-document">Bank Document</label>
               <img
                 src={props.form.bankUpload}
-                alt="Income Doc"
+                alt="Income Doc- user didn't provided document in .png,.jpg,.jpeg format"
                 readOnly
                 width={300}
                 height={300}
@@ -314,7 +348,7 @@ export default function Iview(props) {
               <label htmlFor="electric-bill">Electric Bill</label>
               <img
                 src={props.form.eleBill}
-                alt="Electric Bill"
+                alt="Electric Bill- user didn't provided document in .png,.jpg,.jpeg format"
                 width={300}
                 height={300}
                 readOnly
@@ -324,7 +358,7 @@ export default function Iview(props) {
               <label htmlFor="photo">Photo</label>
               <img
                 src={props.form.photo}
-                alt="Photo"
+                alt="Photo- user didn't provided document in .png,.jpg,.jpeg format"
                 width={300}
                 height={300}
                 readOnly
@@ -334,7 +368,7 @@ export default function Iview(props) {
               <label htmlFor="signature">Signature</label>
               <img
                 src={props.form.sign}
-                alt="Signature"
+                alt="Signature- user didn't provided document in .png,.jpg,.jpeg format"
                 width={300}
                 height={300}
                 readOnly
@@ -342,6 +376,23 @@ export default function Iview(props) {
             </div>
           </div>
         </div>
+        {/* <div
+          className="form-group"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
+        >
+          <input
+            type="button"
+            className="btn btn-success"
+            value="Approve"
+            style={{
+              width: "100px",
+            }}
+          />
+        </div> */}
       </form>
     </div>
   );
