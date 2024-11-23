@@ -1,13 +1,24 @@
 import React from "react";
+// import {useState} from "react";
 import "./Iview.css";
+// import { Vortex } from "react-loader-spinner";
+// import axios from "axios";
 
 export default function Iview(props) {
-  console.log(props);
+  // const [loading, setLoading] = useState(false);
+  // const Approved = async () => {
+  //   setLoading(true);
+  //   await axios
+  //     .post("https://sw-403g.onrender.com/form/approve",{
+  //       number: "9834845397"
+  //     })
+  //     .catch(err => console.error(err));
+  // };
   return (
     <div className="form-flex">
       <form>
         {/* Personal Details Section */}
-        {/* <div
+        <div
           className="form-group"
           style={{
             display: "flex",
@@ -15,22 +26,30 @@ export default function Iview(props) {
             alignItems: "center",
           }}
         >
-          <span
-            style={{
-              color: "green",
-            }}
-          >
-            *Clicking Approve will send approved message to Students Mobile No.
-          </span>
-          <input
-            type="button"
-            className="btn btn-success"
-            value="Approve"
-            style={{
-              width: "100px",
-            }}
-          />
-        </div> */}
+          {/* {!loading ? ( */}
+            <>
+              <span
+                style={{
+                  color: "green",
+                }}
+              >
+                *Clicking Approve will send approved message to Students Mobile
+                No.
+              </span>
+              <input
+                type="button"
+                value="Approve"
+                // onClick={Approved}
+                className="btn btn-success"
+                style={{
+                  width: "100px",
+                }}
+              />
+            </>
+          {/* ) : (
+            <Vortex />
+          )} */}
+        </div>
         <div className="form-section">
           <div className="section-title">Personal Information</div>
           <div className="form-grid">
@@ -376,7 +395,7 @@ export default function Iview(props) {
             </div>
           </div>
         </div>
-        {/* <div
+        <div
           className="form-group"
           style={{
             display: "flex",
@@ -392,7 +411,7 @@ export default function Iview(props) {
               width: "100px",
             }}
           />
-        </div> */}
+        </div>
       </form>
     </div>
   );

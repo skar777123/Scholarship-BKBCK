@@ -8,6 +8,7 @@ export default function View() {
   const [data, setData] = useState();
   const [loader, setLoader] = useState(false);
   const [form, setForm] = useState();
+
   async function fetch() {
     await axios
       .get("/form/fetch")
@@ -35,7 +36,6 @@ export default function View() {
           borderRadius: 20,
           width: 680,
           position: "absolute",
-
         }}
       >
         <h1>Submitted Forms:{}</h1>
@@ -67,6 +67,7 @@ export default function View() {
                   setForm(item);
                   console.log(form);
                 }
+
                 // async function deleteUser() {
                 //   await axios
                 //     .post("/form/delete", {
@@ -77,10 +78,12 @@ export default function View() {
                 //     });
                 // }
                 return (
-                  <tr key={index}>
+                  <tr
+                    key={index}
+                  >
                     <th scope="row">{index + 1}</th>
                     <td>{item.name}</td>
-                    <td>{item.studentId.substring(0,7)}</td>
+                    <td>{item.studentId.substring(0, 7)}</td>
                     <td>{item.program}</td>
                     <td>
                       <div
