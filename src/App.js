@@ -14,7 +14,7 @@ function App() {
         <Navbar />
         <Routes>
           {/* <Route exact path="/" element={<Maintience />} /> */}
-          <Route exact path="/" elemen={<Form/>} /> 
+          <Route exact path="/" element={<Form/>} /> 
           <Route exact path="/Admin-login" element={<Admin />} />
           <Route exact path="/Admin-view" element={<View />} />
           <Route exact path="/check" element={<Check />} />
